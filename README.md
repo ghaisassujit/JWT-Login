@@ -5,7 +5,8 @@ Server - The server is a REST API which has login service to generates JWT token
 Client - This is a react application which has user profile and login page. User Profile page needs authentication 
          and hence redirects to login page incase when no authentication tokent is found at client end. 
          Login page provides user interface for providing user credentials and calls the Login service to validate the user 
-         and get authentication service. This authentication token is then stored at clent end and can be retreived on demand.
+         and get authentication service. This authentication token is then stored at client end along with the extracted user 
+         profile from the token. The token and the user profile can then be accessed from User Profile page.
          
          
 # Instructions to Run
