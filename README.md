@@ -1,8 +1,8 @@
 # JWT-Login
-This project contains client and server application. 
-Server - The server is a REST API which has login service to generates JWT token. It also has static mocked user database. 
+This project implements Login using JWT and contains client & server application. 
+1. Server - The server is a REST API which has login service to generates JWT token. It also has static mocked user database. 
          Login service accepts username and password and issues a JWT token which contains user as payload.
-Client - This is a react application which has user profile and login page. User Profile page needs authentication 
+2. Client - This is a react application which has user profile and login page. User Profile page needs authentication 
          and hence redirects to login page incase when no authentication tokent is found at client end. 
          Login page provides user interface for providing user credentials and calls the Login service to validate the user 
          and get authentication service. This authentication token is then stored at client end along with the extracted user 
