@@ -38,4 +38,5 @@ Server -
 
 # Assumptions made during implementation
 1. Token refesh is not needed. Can be implemented if need be.
-2. Just a poc project on Login with JWT; hence, no test coverage. Have added jest dependancy and tests can be added if required.
+2. Just a poc project on Login with JWT; hence, no test coverage. Have added jest dependancy and tests can be added later.
+3. The server project also implements a users api. This service doesnot implement any authentication check, but can be implemented later.
