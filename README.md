@@ -35,4 +35,7 @@ Server -
  
  some more user credentails
  1. Username/email: sandra.mist@email.com.au, Password: Password.
- 2. Username/email: rita.james@email.com.au, Password: Password.
+
+# Assumptions made during implementation
+. Token refesh is not needed. Can be implemented if need be.
+. Just a poc project on Login with JWT; hence, no test coverage. Have added jest dependancy and tests can be added if required.
