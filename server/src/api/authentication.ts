@@ -10,10 +10,12 @@ class AuthenticationApi {
                 const token = sign(user,process.env.TOKEN_SECRET,)
                 res.json({accessToken: token});
             } else {
-                res.status(400).send({ error: { code: 'NOT_FOUND', message: 'User not found.' } });
+                res.status(400);
+                res.send({ error: { code: 'NOT_FOUND', message: 'User not found.' } });
             }
         } else {
-            res.status(401).send({ error: { code: 'INVALID_CREDENTIALS', message: 'Invalid user credentials.' } });
+            res.status(401);
+            res.send({ error: { code: 'INVALID_CREDENTIALS', message: 'Invalid user credentials.' } });
         }
     }
 }

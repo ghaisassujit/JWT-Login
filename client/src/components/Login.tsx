@@ -1,11 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import authenticationService from '../services/AuthenticationService';
-import { FormField, Wrapper } from './Login.style';
+import { ErrorText, FormField, Wrapper } from './Login.style';
 
 const Login: React.FC = () => {
+  const [error, setError] = useState('');
   let history = useHistory();
   const LoginValidation = yup.object().shape({
     email: yup
@@ -23,12 +24,17 @@ const Login: React.FC = () => {
     authenticationService.login(email, password, (error, success) => {
       if (success) {
         history.push('/');
+      } else if (error) {
+        setError(error);
       }
     });
   };
 
   return (
     <Wrapper>
+      <ErrorText>
+        <label>{error}</label>
+      </ErrorText>
       <Formik
         initialValues={{
           email: '',
@@ -43,12 +49,16 @@ const Login: React.FC = () => {
           <FormField>
             <label>Username/email</label>
             <Field type="text" name="email" placeholder="email" />
-            <ErrorMessage name="email" />
+            <ErrorText>
+              <ErrorMessage name="email" />
+            </ErrorText>
           </FormField>
           <FormField>
             <label>Password</label>
-            <Field type="text" name="password" placeholder="password" />
-            <ErrorMessage name="password" />
+            <Field type="password" name="password" placeholder="password" />
+            <ErrorText>
+              <ErrorMessage name="password" />
+            </ErrorText>
           </FormField>
           <FormField>
             <button type="submit">Login</button>

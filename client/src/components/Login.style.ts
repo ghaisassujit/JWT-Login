@@ -27,3 +27,12 @@ align-items: center;
 flex-direction: column;
 margin-top:10px;
 `;
+
+export const ErrorText = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top:10px;
+color: red;
+`;

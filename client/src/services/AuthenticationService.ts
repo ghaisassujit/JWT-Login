@@ -27,13 +27,17 @@ class AuthorisationService {
                     if (decodedToken && decodedToken.payload) {
                         this.user = decodedToken.payload as IUser;
                     }
-
-                    localStorage.setItem('currentUser', JSON.stringify(response.data.accessToken));
                 }
-                callback(response.data.error.message, success);
-            }).catch(reason => {
                 callback('Unexpected error occurred. Please try again.', success);
-            })
+            }).catch(error => {
+                console.log(JSON.stringify(error));
+                let errorMessage = 'Unexpected error occurred. Please try again.'; 
+                if(error && error.response && error.response.data && error.response.data.error){
+                    errorMessage = error.response.data.error.message;
+                }
+                callback(errorMessage, success);
+                
+            });
     }
 
     public logout() {
