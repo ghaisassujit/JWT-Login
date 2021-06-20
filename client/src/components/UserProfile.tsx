@@ -14,7 +14,6 @@ const UserProfile: React.FC = (props) => {
     });
 
     const handleLogout = () => {
-        console.log('handleLogout');
         AuthenticationService.logout();
         history.push('/login');
     };

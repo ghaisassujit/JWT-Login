@@ -12,7 +12,7 @@ class AuthorisationService {
     }
 
     public getUser() {
-        return this.user;
+        return {...this.user};
     }
 
     public login(username: string, password: string, callback: ((error: any, sucess: any) => any)) {
@@ -30,7 +30,6 @@ class AuthorisationService {
                 }
                 callback('Unexpected error occurred. Please try again.', success);
             }).catch(error => {
-                console.log(JSON.stringify(error));
                 let errorMessage = 'Unexpected error occurred. Please try again.'; 
                 if(error && error.response && error.response.data && error.response.data.error){
                     errorMessage = error.response.data.error.message;
