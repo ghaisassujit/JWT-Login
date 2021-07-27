@@ -2,6 +2,8 @@ import express from "express";
 import { verify } from "jsonwebtoken";
 
 export const authenticationCheck = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log('request', req);
+    
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
     verify(token,process.env.TOKEN_SECRET,(err: any, user: any) => {
         if(err) {

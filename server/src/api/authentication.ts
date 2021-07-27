@@ -7,7 +7,7 @@ class AuthenticationApi {
         if (req.body.userName && req.body.password) {
             const user = usersRepository.getByUserNameAndPassword(req.body.userName, req.body.password);
             if (user) {
-                const token = sign(user,process.env.TOKEN_SECRET,)
+                const token = sign(user.id,process.env.TOKEN_SECRET,)
                 res.json({accessToken: token});
             } else {
                 res.status(400);
