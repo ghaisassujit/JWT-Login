@@ -9,9 +9,14 @@ export class UsersRoutes extends CommonRoutesConfig {
     }
 
     configureRoutes() {
+        
+        this.app.route(`/users/:userId`)
+            .all(authenticationCheck)
+            .get(UsersApi.getUser); 
+
         this.app.route(`/users`)
             .all(authenticationCheck)
-            .get(UsersApi.getAll);
+            .get(UsersApi.getUsers);    
 
         return this.app;
     }

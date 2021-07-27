@@ -21,13 +21,7 @@ const Login: React.FC = () => {
   });
 
   const authenticateAndRedirect = (email: string, password: string) => {
-    authenticationService.login(email, password, (error, success) => {
-      if (success) {
-        history.push('/');
-      } else if (error) {
-        setError(error);
-      }
-    });
+    authenticationService.login(email, password).then(() => history.push('/')).catch((error) => setError(error));
   };
 
   return (
